@@ -1,0 +1,28 @@
+{
+  "name": "snart-jul",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Tor Arve Stangeland",
+  "license": "ISC",
+  "browserslist": "last 1 version",
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "browser-sync": "^2.26.13",
+    "bulma": "^0.8.2",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.13.1",
+    "uglify-js": "^3.12.1"
+  },
+  "scripts": {
+    "start": "gulp"
+  },
+  "presets": [
+    "@babel/preset-env"
+  ]
+}
