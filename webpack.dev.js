@@ -7,5 +7,7 @@ module.exports = merge(common, {
     devServer: {
         contentBase: './dist',
         open: true,
+        // Uncomment to allow access from other machines
+        host: '0.0.0.0', 
     },
 });
