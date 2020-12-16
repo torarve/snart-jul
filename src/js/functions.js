@@ -34,7 +34,7 @@ export function xmasFeeling(date) {
                 return 1.0;
             }
             else {
-                return 0.1 + (xmas-date)/(xmas-startAdvent);
+                return 0.1 + (date-startAdvent)/(xmas-startAdvent);
             }
         default:
             return 0.0;
