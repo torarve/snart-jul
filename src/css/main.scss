@@ -37,3 +37,11 @@ $primary-invert: $pink-invert;
 @import "bulma/sass/elements/title";
 @import "bulma/sass/grid/columns";
 @import "bulma/sass/layout/hero";
+
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 80vh;
+    width: 80vw;
+  }
+  
