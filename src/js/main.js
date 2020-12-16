@@ -1,5 +1,5 @@
-import { isXmas } from './functions';
-import { Chart } from 'chart.js';
+import { firstSundayOfAdvent, isXmas } from './functions';
+import { createChart } from './chart';
 
 document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
@@ -46,41 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 500, title, element);
 
-    const chart = new Chart('chart', {
-        type: 'line',
-        options: {
-            title: 'Julefølelse',
-            scales: {
-                xAxes: [{
-                    type: 'time',
-                    time: {
-                        unit: 'month',
-                        displayFormats: {
-                            second: 'HH:mm:ss',
-                            minute: 'HH:mm',
-                        }
-                    }
-                }]
-            },
-            tooltips: {
-                enabled: false,
-            }
-        },
-        data: {
-            datasets: [{
-                label: 'Julefølelse',
-                backgroundColor: "#b3000c80",
-                lineTension: 0,
-                pointRadius: 0,
-                data: [
-                    {x: new Date(2020, 0, 1), y: 100},
-                    {x: new Date(2020, 0, 14), y: 0},
-                    {x: new Date(2020, 10, 1), y: 0},
-                    {x: new Date(2020, 10, 29), y: 10},
-                    {x: new Date(2020, 11, 24, 16, 0, 0), y: 100},
-                    {x: new Date(2020, 11, 31, 59, 59, 59), y:100}
-                ]
-            }]
-        }
-    });
+    console.log(firstSundayOfAdvent(2020));
+    createChart();
 });
