@@ -1,13 +1,14 @@
-import { firstSundayOfAdvent, isXmas } from './functions';
+import { firstSundayOfAdvent, isXmas, xmasEve, xmasFeeling } from './functions';
 import { createChart } from './chart';
 
 document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     const title = document.getElementById('title');
     const element = document.getElementById('count-down');
+    const feelingElement = document.getElementById('xmas-feeling');
     setInterval((title, element) => {
         const now = new Date();
-        const xmas = new Date(now.getFullYear(), 11, 24);
+        const xmas = xmasEve(now);
         let diff = Math.trunc((xmas - now) / 1000); // seconds left
         const seconds = diff % 60;
         diff = Math.trunc(diff / 60); // minutes left
@@ -44,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.innerHTML = `I dag er <a href="https://no.wikipedia.org/wiki/Tyvendedag_jul">${now.getDate()+7}. dag jul</a>.`;
             }
         }
+
+        const currentFeeling = xmasFeeling(now)*100;
+        feelingElement.innerText = `Din julefølelse er nå ${currentFeeling.toFixed(2)}%`;
     }, 500, title, element);
 
     console.log(firstSundayOfAdvent(2020));
