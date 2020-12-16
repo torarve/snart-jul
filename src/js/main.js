@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: [
                     {x: new Date(2020, 0, 1), y: 100},
                     {x: new Date(2020, 0, 14), y: 0},
-                    {x: new Date(2020, 10, 29), y: 0},
+                    {x: new Date(2020, 10, 1), y: 0},
+                    {x: new Date(2020, 10, 29), y: 10},
                     {x: new Date(2020, 11, 24, 16, 0, 0), y: 100},
                     {x: new Date(2020, 11, 31, 59, 59, 59), y:100}
                 ]
