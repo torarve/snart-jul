@@ -17,7 +17,7 @@ export function xmasFeeling(date) {
     const day = date.getDate();
     const xmas = xmasEve(date);
     switch(month) {
-        case 1:
+        case 0:
             if (day<14) {
                 return (date-new Date(date.getFullYear(), 0, 1)) / 31;
             }
@@ -34,7 +34,7 @@ export function xmasFeeling(date) {
                 return 1.0;
             }
             else {
-                return 0.1 + (date-startAdvent)/(xmas-startAdvent);
+                return 0.1 + 0.9*(date-startAdvent)/(xmas-startAdvent);
             }
         default:
             return 0.0;
