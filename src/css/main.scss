@@ -12,7 +12,8 @@
 
 // 2. Set your own initial variables
 // Update the blue shade, used for links
-$blue: #06bcef;
+// $blue: #06bcef;
+$blue: #fff;
 // Add pink and its invert
 $pink: #b3000c;
 $pink-invert: #fff;
@@ -45,3 +46,6 @@ $primary-invert: $pink-invert;
     width: 80vw;
   }
   
+  a {
+      text-decoration: underline;
+  }

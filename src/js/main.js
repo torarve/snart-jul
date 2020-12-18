@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const days = Math.trunc(diff / 24); // days left
 
         if (!isXmas(now)) {
-            title.innerText = 'Snart jul?'
+            title.innerHTML = 'Snart <a href="https://no.wikipedia.org/wiki/Jul">jul</a>?';
             element.innerText = `Det er ${days} dager ${hours} timer ${minutes} minutt og  ${seconds} sekund til jul.`;
         }
         else {
