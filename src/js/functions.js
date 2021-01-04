@@ -19,7 +19,9 @@ export function xmasFeeling(date) {
     switch(month) {
         case 0:
             if (day<14) {
-                return (date-new Date(date.getFullYear(), 0, 1)) / 31;
+                //return (date-new Date(date.getFullYear(), 0, 1)) / 31;
+                const janFirst = new Date(date.getFullYear(), 0, 1);
+                return 1.0 - (date-janFirst)/(new Date(date.getFullYear(), 0, 14)-janFirst);
             }
 
             return 0.0;
