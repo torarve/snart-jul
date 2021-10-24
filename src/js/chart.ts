@@ -1,4 +1,5 @@
 import Chart from 'chart.js/auto';
+import { nb } from 'date-fns/locale';
 import 'chartjs-adapter-date-fns';
 
 import { firstSundayOfAdvent } from './functions';
@@ -11,6 +12,11 @@ export function createChart() {
             scales: {
                 x: {
                     type: 'time',
+                    adapters: {
+                        date: {
+                            locale: nb,
+                        },
+                    },
                     time: {
                         unit: 'month',
                     }
