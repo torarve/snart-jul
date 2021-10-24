@@ -13,5 +13,9 @@
   "scripts": {
     "start": "parcel src/index.html --open",
     "build": "parcel build src/index.html"
+  },
+  "dependencies": {
+    "chartjs-adapter-date-fns": "^2.0.0",
+    "date-fns": "^2.25.0"
   }
 }

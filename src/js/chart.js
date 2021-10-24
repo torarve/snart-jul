@@ -1,4 +1,6 @@
-import { Chart } from 'chart.js';
+import Chart from 'chart.js/auto';
+import 'chartjs-adapter-date-fns';
+
 import { firstSundayOfAdvent } from './functions';
 
 export function createChart() {
@@ -8,7 +10,7 @@ export function createChart() {
         options: {
             title: 'Julefølelse',
             scales: {
-                xAxes: [{
+                x: {
                     type: 'time',
                     time: {
                         unit: 'month',
@@ -17,7 +19,7 @@ export function createChart() {
                             minute: 'HH:mm',
                         }
                     }
-                }]
+                }
             },
             tooltips: {
                 enabled: false,
@@ -26,7 +28,8 @@ export function createChart() {
         data: {
             datasets: [{
                 label: `Julefølelse ${year}`,
-                backgroundColor: "#b3000c80",
+                fill: true,
+                backgroundColor: '#b3000c80',
                 lineTension: 0,
                 pointRadius: 0,
                 data: [
