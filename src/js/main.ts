@@ -1,6 +1,6 @@
 import { isXmas, xmasEve, xmasFeeling } from './functions';
 import { createChart } from './chart';
-import { differenceInCalendarDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
+import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
 document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const seconds = differenceInSeconds(xmas, now, { roundingMethod: 'floor' }) %60;
             const minutes = differenceInMinutes(xmas, now, { roundingMethod: 'floor' }) % 60;
             const hours = differenceInHours(xmas, now, { roundingMethod: 'floor' }) % 24;
-            const days = differenceInCalendarDays(xmas, now);
+            const days = differenceInDays(xmas, now);
             element.innerText = `Det er ${days} dager ${hours} timer ${minutes} minutt og  ${seconds} sekund til jul.`;
         }
         else {
