@@ -7,30 +7,21 @@ export function createChart() {
     const year = new Date().getFullYear();
     const chart = new Chart('chart', {
         type: 'line',
-        options: {
-            title: 'Julefølelse',
+        options: {            
             scales: {
                 x: {
                     type: 'time',
                     time: {
                         unit: 'month',
-                        displayFormats: {
-                            second: 'HH:mm:ss',
-                            minute: 'HH:mm',
-                        }
                     }
                 }
             },
-            tooltips: {
-                enabled: false,
-            }
         },
         data: {
             datasets: [{
                 label: `Julefølelse ${year}`,
                 fill: true,
                 backgroundColor: '#b3000c80',
-                lineTension: 0,
                 pointRadius: 0,
                 data: [
                     {x: new Date(year, 0, 1), y: 100},
