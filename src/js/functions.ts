@@ -1,18 +1,18 @@
-export function xmasEve(date) {
-    return new Date(date.getFullYear(), 11, 24)
+export function xmasEve(date): Date {
+    return new Date(date.getFullYear(), 11, 24, 16, 0, 0);
 }
-export function isXmas(date) {
+export function isXmas(date): boolean {
     const xmas = xmasEve(date);
     const last = new Date(date.getFullYear(), 0, 14);
     return date>=xmas || date<last;
 }
 
-export function firstSundayOfAdvent(year) {
+export function firstSundayOfAdvent(year): Date {
     const xmas = new Date(year, 11, 24);
     return new Date(year, 11, 24-xmas.getDay()-3*7);
 }
 
-export function xmasFeeling(date) {
+export function xmasFeeling(date: Date): number {
     const month = date.getMonth();
     const day = date.getDate();
     const xmas = xmasEve(date);
