@@ -1,5 +1,6 @@
-import { firstSundayOfAdvent, isXmas, xmasEve, xmasFeeling } from './functions';
+import { isXmas, xmasEve, xmasFeeling } from './functions';
 import { createChart } from './chart';
+import { differenceInCalendarDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
 document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
@@ -8,17 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const feelingElement = document.getElementById('xmas-feeling');
     setInterval((title, element) => {
         const now = new Date();
-        const xmas = xmasEve(now);
-        let diff = Math.trunc((xmas - now) / 1000); // seconds left
-        const seconds = diff % 60;
-        diff = Math.trunc(diff / 60); // minutes left
-        const minutes = diff % 60;
-        diff = Math.trunc(diff / 60); // hours left
-        const hours = diff % 24;
-        const days = Math.trunc(diff / 24); // days left
-
         if (!isXmas(now)) {
             title.innerHTML = 'Snart <a href="https://no.wikipedia.org/wiki/Jul">jul</a>?';
+            const xmas = xmasEve(now);
+            const seconds = differenceInSeconds(xmas, now, { roundingMethod: 'floor' }) %60;
+            const minutes = differenceInMinutes(xmas, now, { roundingMethod: 'floor' }) % 60;
+            const hours = differenceInHours(xmas, now, { roundingMethod: 'floor' }) % 24;
+            const days = differenceInCalendarDays(xmas, now);
             element.innerText = `Det er ${days} dager ${hours} timer ${minutes} minutt og  ${seconds} sekund til jul.`;
         }
         else {
@@ -50,6 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
         feelingElement.innerText = `Din julefølelse er nå ${currentFeeling.toFixed(2)}%`;
     }, 500, title, element);
 
-    console.log(firstSundayOfAdvent(2020));
     createChart();
 });
