@@ -2,11 +2,23 @@ import { isXmas, xmasEve, xmasFeeling } from './functions';
 import { createChart } from './chart';
 import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
+function parseArgs(search: string): { [key: string]: any } {
+    const parts = search.substring(1);
+    return parts.split("&")
+        .map((x) => x.split("="))
+        .reduce((res, x) => { res[x[0]] = x[1]; return res; }, {})
+}
+
+function evenMode() {
+    return "even" in parseArgs(document.location.search);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     const title = document.getElementById('title');
     const element = document.getElementById('count-down');
-    const feelingElement = document.getElementById('xmas-feeling');
+    const feelingElement = document.getElementById('xmas-feeling') as HTMLElement;
+    if (evenMode()) document.body.classList.add("even-mode");
     setInterval((title, element) => {
         const now = new Date();
         if (!isXmas(now)) {
