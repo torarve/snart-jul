@@ -57,10 +57,9 @@ export function grinchCalculation(date: Date): number {
 }
 
 export function notGrinchCalculation(date: Date): number {
-	let testdate = new Date(2022, 10, 30);
-	const month = testdate.getMonth();
-	const day = testdate.getDate();
-	const xmas = xmasEve(testdate);
+	const month = date.getMonth();
+	const day = date.getDate();
+	const xmas = xmasEve(date);
 	switch (month) {
 		//januer holder følelsen godt
 		case 0:
@@ -68,7 +67,7 @@ export function notGrinchCalculation(date: Date): number {
 		//februar synker den jevnt
 		case 1:
 			const daysInFebruary = new Date(
-				testdate.getFullYear(),
+				date.getFullYear(),
 				month + 1,
 				0
 			).getDate();
