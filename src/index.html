@@ -1,53 +1,74 @@
 <!DOCTYPE html>
 <html lang="no">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Snart jul?</title>
-    <link rel="stylesheet" href="css/main.scss">
-  </head>
-  <body>
-    <section class="hero is-primary is-fullheight">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-8-desktop is-offset-2-desktop">
-              <h1 id="title" class="title is-2 is-spaced">
-                Snart <a href="https://no.wikipedia.org/wiki/Jul">jul</a>?
-              </h1>
-              <h2 class="subtitle is-4">
-                  <span id="count-down"></span>
-              </h2>
-            </div>
-          </div>
-          <div class="columns">
-            <div class="column is-8-desktop is-offset-2-desktop">
-              <p id="xmas-feeling" class="is-2 is-spaced"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href="#chart">
-        <svg style="width:48px;height:48px" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-        </svg>
-       </a>
-    </section>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Snart jul?</title>
+		<link rel="stylesheet" href="css/main.scss" />
+	</head>
+	<body>
+		<section class="hero is-primary is-fullheight">
+			<div class="hero-body">
+				<div class="container">
+					<div class="columns">
+						<div class="column is-2-desktop is-offset-8-desktop">
+							<button
+								class="button is-info is-light"
+								onclick="redirectNonGrinch()"
+							>
+								Ikke Grinchen?
+							</button>
+						</div>
+					</div>
+					<div class="columns">
+						<div class="column is-8-desktop is-offset-2-desktop">
+							<h1 id="title" class="title is-2 is-spaced">
+								Snart
+								<a href="https://no.wikipedia.org/wiki/Jul"
+									>jul</a
+								>?
+							</h1>
+							<h2 class="subtitle is-4">
+								<span id="count-down"></span>
+							</h2>
+						</div>
+					</div>
+					<div class="columns">
+						<div class="column is-8-desktop is-offset-2-desktop">
+							<p id="xmas-feeling" class="is-2 is-spaced"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="#chart">
+				<svg style="width: 48px; height: 48px" viewBox="0 0 24 24">
+					<path
+						fill="currentColor"
+						d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+					/>
+				</svg>
+			</a>
+		</section>
 
-    <section class="section is-fullheight">
-      <div class="container">
-      <div class="columns">
-        <div class="column">
-          <a name="chart"></a>
-          <div class="chart-container">
-            <canvas id="chart"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-    </section>
+		<section class="section is-fullheight">
+			<div class="container">
+				<div class="columns">
+					<div class="column">
+						<a name="chart"></a>
+						<div class="chart-container">
+							<canvas id="chart"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <script type="module" src="js/main.ts"></script>
-  </body>
+		<script type="module" src="js/main.ts"></script>
+		<script>
+			function redirectNonGrinch() {
+				window.location.href = '/?im-not-a-grinch';
+			}
+		</script>
+	</body>
 </html>
