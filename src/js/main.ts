@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentFeeling = xmasFeeling(now)*100;
         feelingElement.innerText = `Din julefølelse er nå ${currentFeeling.toFixed(2)}%`;
+        document.documentElement.style.setProperty('--progress', `${currentFeeling}%`);
     }, 500, title, element);
 
     createChart();
