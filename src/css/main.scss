@@ -7,26 +7,43 @@
 
 // https://www.schemecolor.com/christmas-red-and-green.php
 
-// Configure the theme through Bulma 1's Sass module API.
-@use "bulma/sass/utilities" with (
-    $blue: #fff,
-    $family-sans-serif: ("Helvetica", "Arial", sans-serif),
-    $link: #fff,
-    $primary: #b3000c
-);
-
-// Keep the same selective Bulma modules used before the upgrade.
-@use "bulma/sass/themes/light" as light-theme;
-@use "bulma/sass/themes/setup" as theme-setup;
-@use "bulma/sass/base";
-@use "bulma/sass/elements/title";
-@use "bulma/sass/grid/columns";
-@use "bulma/sass/layout/container";
-@use "bulma/sass/layout/hero";
+// Use Bulma's precompiled CSS to avoid compiling deprecated Sass in the package.
+@import "bulma/css/bulma.css";
 
 :root {
-    @include light-theme.light-theme;
-    @include theme-setup.setup-theme;
+    --bulma-family-primary: "Helvetica", "Arial", sans-serif;
+    --bulma-primary: #b3000c;
+    --bulma-primary-base: #b3000c;
+    --bulma-primary-h: 355.98deg;
+    --bulma-primary-s: 100%;
+    --bulma-primary-l: 35.1%;
+    --bulma-primary-invert-l: 100%;
+    --bulma-link-h: 0deg;
+    --bulma-link-s: 0%;
+    --bulma-link-l: 100%;
+    color-scheme: light;
+    --bulma-scheme-brightness: light;
+    --bulma-scheme-main-l: 100%;
+    --bulma-scheme-main-bis-l: 98%;
+    --bulma-scheme-main-ter-l: 96%;
+    --bulma-background-l: 96%;
+    --bulma-border-weak-l: 93%;
+    --bulma-border-l: 86%;
+    --bulma-text-weak-l: 48%;
+    --bulma-text-l: 29%;
+    --bulma-text-strong-l: 21%;
+    --bulma-text-title-l: 14%;
+    --bulma-scheme-invert-ter-l: 14%;
+    --bulma-scheme-invert-bis-l: 7%;
+    --bulma-scheme-invert-l: 4%;
+}
+
+.section {
+    padding: 0;
+}
+
+.section.is-fullheight {
+    min-height: 0;
 }
 
 :root {
@@ -36,6 +53,7 @@
 
 .chart-container {
     position: relative;
+    background-color: #fff;
   }
   
   a {
