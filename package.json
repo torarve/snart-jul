@@ -1,21 +1,28 @@
 {
   "name": "snart-jul",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "author": "Tor Arve Stangeland",
   "license": "ISC",
+  "engines": {
+    "node": ">=26 <27"
+  },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0",
-    "bulma": "^0.9.3",
-    "chart.js": "^3.6.0",
-    "parcel": "^2.0.0"
+    "@playwright/test": "1.63.0",
+    "bulma": "1.0.4",
+    "chart.js": "4.5.1",
+    "sass": "1.105.1",
+    "vite": "8.3.2"
   },
   "scripts": {
-    "start": "parcel src/index.html --open",
-    "build": "parcel build src/index.html"
+    "start": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots"
   },
   "dependencies": {
-    "chartjs-adapter-date-fns": "^2.0.0",
-    "date-fns": "^2.25.0"
+    "chartjs-adapter-date-fns": "3.0.0",
+    "date-fns": "4.4.0"
   }
 }

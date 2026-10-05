@@ -1,11 +1,5 @@
 @charset "utf-8";
 
-:root {
-    --image-width: 200px;
-    --progress: 2%;
-}
-
-
 // Customization
 
 // You can easily customize Bulma with your own variables.
@@ -13,32 +7,32 @@
 
 // https://www.schemecolor.com/christmas-red-and-green.php
 
-// 1. Import the initial variables
-@import "bulma/sass/utilities/initial-variables";
+// Configure the theme through Bulma 1's Sass module API.
+@use "bulma/sass/utilities" with (
+    $blue: #fff,
+    $family-sans-serif: ("Helvetica", "Arial", sans-serif),
+    $link: #fff,
+    $primary: #b3000c
+);
 
-// 2. Set your own initial variables
-// Update the blue shade, used for links
-// $blue: #06bcef;
-$blue: #fff;
-// Add pink and its invert
-$pink: #b3000c;
-$pink-invert: #fff;
-// Update the sans-serif font family
-$family-sans-serif: "Helvetica", "Arial", sans-serif;
+// Keep the same selective Bulma modules used before the upgrade.
+@use "bulma/sass/themes/light" as light-theme;
+@use "bulma/sass/themes/setup" as theme-setup;
+@use "bulma/sass/base";
+@use "bulma/sass/elements/title";
+@use "bulma/sass/grid/columns";
+@use "bulma/sass/layout/container";
+@use "bulma/sass/layout/hero";
 
-// 3. Set the derived variables
-// Use the new pink as the primary color
-$primary: $pink;
-$primary-invert: $pink-invert;
+:root {
+    @include light-theme.light-theme;
+    @include theme-setup.setup-theme;
+}
 
-// 4. Import the rest of Bulma
-//@import "bulma/bulma";
-@import "bulma/sass/utilities/_all";
-@import "bulma/sass/base/_all";
-@import "bulma/sass/elements/container";
-@import "bulma/sass/elements/title";
-@import "bulma/sass/grid/columns";
-@import "bulma/sass/layout/hero";
+:root {
+    --image-width: 200px;
+    --progress: 2%;
+}
 
 .chart-container {
     position: relative;
@@ -47,6 +41,10 @@ $primary-invert: $pink-invert;
   a {
       text-decoration: underline;
   }
+
+.hero.is-primary a {
+    color: #fff;
+}
 
 body.even-mode .hero {
     animation: blinkingBackground 1s infinite;
