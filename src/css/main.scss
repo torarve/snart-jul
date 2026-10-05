@@ -1,11 +1,5 @@
 @charset "utf-8";
 
-:root {
-    --image-width: 200px;
-    --progress: 2%;
-}
-
-
 // Customization
 
 // You can easily customize Bulma with your own variables.
@@ -13,40 +7,62 @@
 
 // https://www.schemecolor.com/christmas-red-and-green.php
 
-// 1. Import the initial variables
-@import "bulma/sass/utilities/initial-variables";
+// Use Bulma's precompiled CSS to avoid compiling deprecated Sass in the package.
+@import "bulma/css/bulma.css";
 
-// 2. Set your own initial variables
-// Update the blue shade, used for links
-// $blue: #06bcef;
-$blue: #fff;
-// Add pink and its invert
-$pink: #b3000c;
-$pink-invert: #fff;
-// Update the sans-serif font family
-$family-sans-serif: "Helvetica", "Arial", sans-serif;
+:root {
+    --bulma-family-primary: "Helvetica", "Arial", sans-serif;
+    --bulma-primary: #b3000c;
+    --bulma-primary-base: #b3000c;
+    --bulma-primary-h: 355.98deg;
+    --bulma-primary-s: 100%;
+    --bulma-primary-l: 35.1%;
+    --bulma-primary-invert-l: 100%;
+    --bulma-link-h: 0deg;
+    --bulma-link-s: 0%;
+    --bulma-link-l: 100%;
+    color-scheme: light;
+    --bulma-scheme-brightness: light;
+    --bulma-scheme-main-l: 100%;
+    --bulma-scheme-main-bis-l: 98%;
+    --bulma-scheme-main-ter-l: 96%;
+    --bulma-background-l: 96%;
+    --bulma-border-weak-l: 93%;
+    --bulma-border-l: 86%;
+    --bulma-text-weak-l: 48%;
+    --bulma-text-l: 29%;
+    --bulma-text-strong-l: 21%;
+    --bulma-text-title-l: 14%;
+    --bulma-scheme-invert-ter-l: 14%;
+    --bulma-scheme-invert-bis-l: 7%;
+    --bulma-scheme-invert-l: 4%;
+}
 
-// 3. Set the derived variables
-// Use the new pink as the primary color
-$primary: $pink;
-$primary-invert: $pink-invert;
+.section {
+    padding: 0;
+}
 
-// 4. Import the rest of Bulma
-//@import "bulma/bulma";
-@import "bulma/sass/utilities/_all";
-@import "bulma/sass/base/_all";
-@import "bulma/sass/elements/container";
-@import "bulma/sass/elements/title";
-@import "bulma/sass/grid/columns";
-@import "bulma/sass/layout/hero";
+.section.is-fullheight {
+    min-height: 0;
+}
+
+:root {
+    --image-width: 200px;
+    --progress: 2%;
+}
 
 .chart-container {
     position: relative;
+    background-color: #fff;
   }
   
   a {
       text-decoration: underline;
   }
+
+.hero.is-primary a {
+    color: #fff;
+}
 
 body.even-mode .hero {
     animation: blinkingBackground 1s infinite;
